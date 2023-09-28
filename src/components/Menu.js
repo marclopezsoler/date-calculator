@@ -1,15 +1,13 @@
-import menuLight from "../assets/menuLight.svg";
-import menuDark from "../assets/menuDark.svg";
-import closeLight from "../assets/closeLight.svg";
-import closeDark from "../assets/closeDark.svg";
 import { useEffect, useState } from "react";
+import { Cross as Hamburger } from 'hamburger-react'
+import { Link } from "react-router-dom";
 
 export default function Menu({ state }) {
   const [isOpen, setOpenClose] = useState(false);
-  const [icon, setIcon] = useState(menuLight);
 
   const switchBg = state === "light" ? "bg-white" : "bg-pureBlack";
-  const textColor = state === "light" ? "text-white" : "text-black";
+  const textColor = state === "light" ? "text-white" : "text-pureBlack";
+  const menuColor = state === "light" ? "#000000" : "#FFFFFF";
 
   const translation = isOpen ? "" : "translate-x-full";
 
@@ -17,42 +15,19 @@ export default function Menu({ state }) {
     setOpenClose(!isOpen);
   }
 
-  useEffect(() => {
-    if (isOpen) {
-      if (state == "dark") {
-        setIcon(closeLight);
-      } else {
-        setIcon(closeDark);
-      }
-    } else {
-      if (state == "dark") {
-        setIcon(menuLight);
-      } else {
-        setIcon(menuDark);
-      }
-    }
-  }, [isOpen, state]);
-
   return (
     <>
       <button
-        className={`${switchBg} absolute shadow-sm hover:shadow-md p-2 w-10 h-10 rounded-full top-0 mt-6 transition duration-500 sm:hover:scale-110 z-30`}
+        className={`${switchBg} absolute flex items-center justify-center shadow-sm hover:shadow-md p-0 m-2 w-12 h-12 rounded-full top-0 mt-6 transition duration-500 sm:hover:scale-110 z-30`}
       >
-        <img
-          className="transition duration-500"
-          src={icon}
-          alt="Toggle Menu"
-          onClick={menuMove}
-        />
+        <Hamburger className="transition duration-500 p-0 m-0 " size={20} color={menuColor} onToggle={menuMove} />
       </button>
       <div
         className={`bg-purple absolute w-screen h-screen z-20 transition duration-500 ${translation}`}
       >
         <section className="flex flex-col items-center justify-center w-screen h-screen">
-          <a className={`${textColor} font-bold italic text-xl`}>TEST 1</a>
-          <a className={`${textColor} font-bold italic text-xl`}>TEST 2</a>
-          <a className={`${textColor} font-bold italic text-xl`}>TEST 3</a>
-          <a className={`${textColor} font-bold italic text-xl`}>TEST 4</a>
+          <Link to="/" className={`${textColor} transition duration-500 font-bold italic text-xl`} onClick={menuMove}>AGE CALCULATOR</Link>
+          <Link to="/coins" className={`${textColor} transition duration-500 font-bold italic text-xl`} onClick={menuMove}>COINS</Link>
         </section>
       </div>
     </>
