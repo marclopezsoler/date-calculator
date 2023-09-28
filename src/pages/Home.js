@@ -23,8 +23,8 @@ export default function Home({ state }) {
           <h1 className={`max-w-2xl text-purple text-center transition duration-700 delay-200 font-black italic text-xl`}>WELCOME TO RANDOM CONVERTERS</h1>
         </div>
         <div className="grid grid-cols-2 gap-8 w-full">
-          <HomeLinks width="8" cardBg={cardBg} icon={state === 'dark' ? calendarLight : calendarDark} textColor={textColor} textValue={"AGE CALENDAR"}/>
-          <HomeLinks width="12" cardBg={cardBg} icon={state === 'dark' ? moneyLight : moneyDark} textColor={textColor} textValue={"CURRENCY CONVERTER"}/>
+          <HomeLinks link="/age-calculator" width="8" cardBg={cardBg} icon={state === 'dark' ? calendarLight : calendarDark} textColor={textColor} textValue={"AGE CALENDAR"}/>
+          <HomeLinks link="/coins" width="12" cardBg={cardBg} icon={state === 'dark' ? moneyLight : moneyDark} textColor={textColor} textValue={"CURRENCY CONVERTER"}/>
         </div>
       </div>
     </motion.div>

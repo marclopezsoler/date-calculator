@@ -29,7 +29,7 @@ export default function Menu({ state }) {
         <Hamburger direction="right" className="transition duration-500 p-0 m-0 " size={20} color={menuColor} toggled={isOpen} toggle={menuMove} />
       </button>
       <div
-        className={`bg-purple absolute w-screen h-screen z-20 transition duration-500 ${translation}`}
+        className={`bg-purple absolute w-screen h-screen z-20 transition duration-500 ease-out ${translation}`}
       >
         <section className="flex flex-col gap-4 items-center justify-center w-screen h-screen">
           <Link to="/" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"HOME"} fontSize={'xl'} translateText={translateText}/></Link>
