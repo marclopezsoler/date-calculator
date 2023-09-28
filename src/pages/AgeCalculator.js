@@ -2,6 +2,7 @@ import { useState } from "react";
 import iconArrow from "../assets/icon-arrow.svg";
 import AgeInput from "../components/AgeInput";
 import AgeResult from "../components/AgeResult";
+import { motion } from "framer-motion";
 
 function AgeCalculator({state}) {
   const [days, setDays] = useState("--");
@@ -77,7 +78,12 @@ function AgeCalculator({state}) {
   const textColor = state === 'dark' ? 'text-white' : 'text-gray-400';
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.67 }}
+    >
         <div className={`${cardBg} max-w-lg w-full h-fit px-12 py-12 gap-4 rounded-xl shadow-sm hover:shadow-md transition duration-500 flex flex-col items-start justify-center`}>
           <section className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-3/4 items-center justify-center">
             <AgeInput textColor={textColor} titleValue={'DAY'} min={1} max={31} plaecholder={"DD"} id={'day'}/>
@@ -94,7 +100,7 @@ function AgeCalculator({state}) {
             <AgeResult h1Color={h1Color} result={years} titleText={yearText}/>
           </section>
         </div>
-        </>
+    </motion.div>
   );
 }
 

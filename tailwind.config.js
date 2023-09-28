@@ -10,6 +10,7 @@ module.exports = {
         almostBlack: "#1D1D1D",
         pureBlack: "#000",
         purple: "#864CFF",
+        purpler: "#864CFF80",
 
         gray: {
           100: "#F6F6F6",

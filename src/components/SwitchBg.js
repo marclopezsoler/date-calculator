@@ -2,7 +2,7 @@ import moon from "../assets/moon.svg";
 import sun from "../assets/sun.svg";
 
 export default function SwitchBg({state, changeBg}) {
-  const switchBg = state === "dark" ? "bg-white" : "bg-pureBlack";
+  const switchBg = state === "dark" ? "bg-pureBlack" : "bg-white";
   const icon = state === 'dark' ? sun : moon;
 
   return (

@@ -9,7 +9,7 @@ export default function AgeInput({textColor, titleValue, min, max, plaecholder, 
         min={min}
         max={max}
         placeholder={plaecholder}
-        className={`${textColor} placeholder-gray-300 bg-transparent font-bold w-full sm:w-20 border border-gray-300 rounded p-2`}
+        className={`${textColor} outline-none placeholder-gray-300 bg-transparent font-bold w-full sm:w-20 border border-gray-300 rounded p-2`}
         id={id}
       ></input>
     </div>
