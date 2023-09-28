@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import iconArrow from "./assets/icon-arrow.svg";
+import moon from "./assets/moon.svg";
+import sun from "./assets/sun.svg";
 
 function App() {
   const [state, setState] = useState('dark');
@@ -16,74 +19,94 @@ function App() {
   }
 
   function setDate(){
-    let dayValue = document.getElementById("day").value;
-    let monthValue = document.getElementById("month").value;
-    let yearValue = document.getElementById("year").value;
+    let dayValue = parseInt(document.getElementById("day").value);
+    let monthValue = parseInt(document.getElementById("month").value);
+    let yearValue = parseInt(document.getElementById("year").value);
 
-    if(dayValue != "" && monthValue != "" && yearValue != ""){
+    if(!isNaN(dayValue) && !isNaN(monthValue) && !isNaN(yearValue)){
 
+      let birth = new Date(yearValue, monthValue - 1, dayValue);
       
       let today = new Date();
-      let todayDay = today.getDay();
-      let todayMonth = today.getMonth();
+      let todayDay = today.getDate();
+      let todayMonth = today.getMonth() + 1;
       let todayYear = today.getFullYear();
+
+      let todayDate = new Date(todayYear, todayMonth - 1, todayDay);
+
+      if(birth < todayDate){
+        console.log('born');
+        createDate();
+      } else if (birth > todayDate){
+        console.log('not born');
+      } else{
+        console.log('birthday');
+        createDate();
+      }
       
-      if(dayValue == ""){
+      if(dayValue == "" && dayValue <= 31){
         dayValue = todayDay;
       }
-      if(monthValue == ""){
+      if(monthValue == "" && monthValue <= 12){
         monthValue = todayMonth;
       }
       if(yearValue == ""){
         yearValue = todayYear;
       }
-      
-      setDays(todayDay - dayValue);
-      setMonths(todayMonth - monthValue);
-      setYears(todayYear - yearValue);
+
+      function createDate(){
+        setDays(todayDay - dayValue);
+        setMonths(todayMonth - monthValue);
+        setYears(todayYear - yearValue);
+      }
     }
   }
 
-  const mainBg = state === 'dark' ? 'bg-gray-400' : 'bg-gray-200';
-  const cardBg = state === 'dark' ? 'bg-black' : 'bg-white';
+  const swicthColor = state === 'dark' ? 'text-black' : 'text-white';
+  const swicthBg = state === 'dark' ? 'bg-white' : 'bg-pureBlack';
+  const mainBg = state === 'dark' ? 'bg-black' : 'bg-gray-200';
+  const cardBg = state === 'dark' ? 'bg-pureBlack' : 'bg-white';
+  const h1Color = state === 'dark' ? 'text-white' : 'text-black';
+  const textColor = state === 'dark' ? 'text-white' : 'text-gray-400';
+  const icon = state === 'dark' ? sun : moon;
 
   return (
     <div>
       <header>
       </header>
       <body className={`${mainBg} w-screen h-screen flex relative items-center justify-center p-4 transition duration-300`}>
-        <button onClick={changeBg} className="absolute">{state}</button>
+        <button onClick={changeBg} className={`${swicthBg} ${swicthColor} absolute p-2 w-10 h-10 rounded-full top-0 mt-6 transition duration-500 hover:scale-110`}><img className="transition duration-500" src={icon}/></button>
         <div className={`${cardBg} max-w-lg w-full h-fit px-12 py-12 gap-4 rounded-xl shadow-md hover:shadow-2xl transition duration-500 flex flex-col items-start justify-center`}>
           <section className="flex flex-row gap-6 w-3/4 items-center justify-center">
             <div className="flex flex-col w-fit h-fit items-start justify-center">
-              <h2 className="text-gray-400 font-bold text-xs pb-1 tracking-widest">DAY</h2>
-              <input type="number" min="1" max="31" placeholder="DD" className="text-black font-bold w-20 border border-gray-300 rounded p-2" id="day"></input>
+              <h2 className={`${textColor} font-bold text-xs pb-1 tracking-widest`}>DAY</h2>
+              <input type="number" min="1" max="31" placeholder="DD" className={`${textColor} placeholder-gray-300 bg-transparent font-bold w-20 border border-gray-300 rounded p-2`} id="day"></input>
             </div>
             <div className="flex flex-col w-fit h-fit items-start justify-center">
-              <h2 className="text-gray-400 font-bold text-xs pb-1 tracking-widest">MONTH</h2>
-              <input type="number" min="1" max="12" placeholder="MM" className="text-black font-bold w-20 border border-gray-300 rounded p-2" id="month"></input>
+              <h2 className={`${textColor} font-bold text-xs pb-1 tracking-widest`}>MONTH</h2>
+              <input type="number" min="1" max="12" placeholder="MM" className={`${textColor} placeholder-gray-300 bg-transparent font-bold w-20 border border-gray-300 rounded p-2`} id="month"></input>
             </div>
             <div className="flex flex-col w-fit h-fit items-start justify-center">
-              <h2 className="text-gray-400 font-bold text-xs pb-1 tracking-widest">YEAR</h2>
-              <input type="number" min="2023" placeholder="YYYY" className="text-black font-bold w-20 border border-gray-300 rounded p-2" id="year"></input>
+              <h2 className={`${textColor} font-bold text-xs pb-1 tracking-widest`}>YEAR</h2>
+              <input type="number" min="0" max="2023" placeholder="YYYY" className={`${textColor} placeholder-gray-300 bg-transparent font-bold w-20 border border-gray-300 rounded p-2`} id="year"></input>
             </div>
           </section>
           <section className="w-full relative flex flex-col items-end mt-4">
             <a className="w-full h-px bg-gray-300 absolute mt-8 z-0"></a>
-            <button className="bg-purple text-white text-lg flex items-center justify-center w-16 h-16 border border-purple font-bold italic rounded-full p-4 z-10 transition duration-200 hover:bg-white hover:border-gray-300 hover:text-black" onClick={setDate}>GO!</button>
+            <button className={`bg-purple text-white text-lg flex items-center justify-center w-16 h-16 border border-purple font-bold italic rounded-full p-4 z-10 transition duration-200 md:hover:scale-110`} onClick={setDate}><img src={iconArrow} /></button>
           </section>
           <section className="flex flex-col w-full">
             <div className="flex flex-row gap-4">
               <a className="text-purple font-black text-2xl italic">{days}</a>
-              <p className="text-black font-black text-2xl italic">days</p>
+              <p className={`${h1Color} font-black text-2xl italic transition duration-200`}>days</p>
             </div>
             <div className="flex flex-row gap-4">
               <a className="text-purple font-black text-2xl italic">{months}</a>
-              <p className="text-black font-black text-2xl italic">months</p>
+              <p className={`${h1Color} font-black text-2xl italic transition duration-200`}>months</p>
             </div>
             <div className="flex flex-row gap-4">
               <a className="text-purple font-black text-2xl italic">{years}</a>
-              <p className="text-black font-black text-2xl italic">years</p>
+              <p className={`${h1Color} font-black text-2xl italic transition duration-200`}>years</p>
             </div>
           </section>
         </div>
