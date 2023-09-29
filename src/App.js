@@ -23,10 +23,13 @@ function App() {
     <AnimatePresence>
       <Router>
         <div
-          className={`${mainBg} overflow-hidden w-screen h-screen flex flex-col relative items-center justify-center p-4 transition duration-300`}
+          className={`${mainBg} overflow-x-hidden w-screen h-screen flex flex-col relative items-center justify-start 2sm:justify-center 2sm:p-4 transition duration-300`}
           >
-          <Menu state={bgState} />
-          <SwitchBg state={bgState} changeBg={changeBg} />
+        <Menu state={bgState} />
+        <SwitchBg state={bgState} changeBg={changeBg} />
+        <div
+          className={`${mainBg} overflow-x-hidden w-screen h-screen flex flex-col relative items-center justify-start 2sm:justify-center transition duration-300`}
+          >
             <Routes>
               <Route exact path="/" element={<Home state={bgState}/>}></Route>
               <Route exact path="/age-calculator" element={<AgeCalculator state={bgState}/>}></Route>
@@ -35,6 +38,7 @@ function App() {
               <Route path='*' element={<NotFound />}/>
             </Routes>
         </div>
+      </div>
       </Router>
     </AnimatePresence>
   );

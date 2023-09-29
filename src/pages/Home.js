@@ -18,15 +18,15 @@ export default function Home({ state }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.67 }}
     >
-      <div className="max-w-2xl flex flex-col w-full h-full gap-8 items-center justify-center">
+      <div className="max-w-2xl flex flex-col w-full sm:w-full h-full gap-8 items-center justify-center mt-16 pb-16 2sm:mt-0 p-4">
         <div
-          className={`${cardBg} max-w-2xl w-full h-fit px-12 py-12 rounded-xl shadow-sm hover:shadow-md transition duration-500 flex flex-col items-center justify-center`}
+          className={`${cardBg} max-w-2xl w-full sm:w-full h-fit px-8 py-8 sm:px-8 sm:py-8 gap-4 rounded-xl sm:shadow-sm sm:hover:shadow-md transition duration-500 flex flex-col items-center justify-center mx-6`}
           >
           <h1 className={`max-w-2xl text-purple text-center transition duration-700 delay-200 font-black italic text-xl`}>WELCOME TO RANDOM CONVERTERS</h1>
         </div>
-        <div className="grid grid-cols-2 gap-8 w-full">
+        <div className="flex flex-col 2sm:grid 2sm:grid-cols-2 gap-8 w-full items-center justify-center">
           <HomeLinks link="/convert-case" width="10" cardBg={cardBg} icon={state === 'dark' ? letterLight : letterDark} textColor={textColor} textValue={"CONVERT CASE"}/>
-          <HomeLinks link="/age-calculator" width="8" cardBg={cardBg} icon={state === 'dark' ? calendarLight : calendarDark} textColor={textColor} textValue={"AGE CALENDAR"}/>
+          <HomeLinks link="/age-calculator" width="10" cardBg={cardBg} icon={state === 'dark' ? calendarLight : calendarDark} textColor={textColor} textValue={"AGE CALENDAR"}/>
           <HomeLinks link="/coins" width="12" cardBg={cardBg} icon={state === 'dark' ? moneyLight : moneyDark} textColor={textColor} textValue={"CURRENCY CONVERTER"}/>
         </div>
       </div>

@@ -32,6 +32,14 @@ module.exports = {
         "2xl": ["52px", { letterSpacing: "-0.4px", lineHeight: 1.25 }],
       },
     },
+    screens:{
+      '2sm': '450px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
   },
   plugins: [],
 };

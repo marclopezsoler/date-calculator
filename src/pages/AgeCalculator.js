@@ -85,8 +85,8 @@ function AgeCalculator({state}) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.67 }}
     >
-        <div className={`${cardBg} max-w-lg w-full h-fit px-12 py-12 gap-4 rounded-xl shadow-sm hover:shadow-md transition duration-500 flex flex-col items-center justify-center`}>
-          <section className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full items-center justify-center">
+        <div className={`${cardBg} max-w-lg w-fit h-fit px-8 py-8 sm:px-8 sm:py-8 gap-4 rounded-xl 2sm:shadow-sm 2sm:hover:shadow-md transition duration-500 flex flex-col items-center justify-center mt-24 mb-24 mx-6`}>
+          <section className="flex flex-col 2sm:flex-row gap-4 2sm:gap-6 w-full items-center justify-center">
             <AgeInput textColor={textColor} titleValue={'DAY'} min={1} max={31} plaecholder={"DD"} id={'day'}/>
             <AgeInput textColor={textColor} titleValue={'MONTH'} min={1} max={12} plaecholder={"MM"} id={'month'}/>
             <AgeInput textColor={textColor} titleValue={'YEAR'} min={100} max={todayYear} plaecholder={"YYYY"} id={'year'}/>
