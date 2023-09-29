@@ -31,10 +31,13 @@ export default function Menu({ state }) {
       <div
         className={`bg-purple absolute w-screen h-screen z-20 transition duration-500 ease-out ${translation}`}
       >
-        <section className="flex flex-col gap-4 items-center justify-center w-screen h-screen p-4">
+        <section className="flex flex-col gap-8 items-center justify-center w-screen h-screen p-4">
           <Link to="/" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"HOME"} fontSize={'text-lg2 2sm:text-xl'} translateText={translateText}/></Link>
           <Link to="/convert-case" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"CASE CONVERT"} fontSize={'text-lg2 2sm:text-xl'} translateText={translateText}/></Link>
+          <Link to="/tip-calculator" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"TIP CALCULATOR"} fontSize={'text-lg2 2sm:text-xl'} translateText={translateText}/></Link>
+          <Link to="/convert-case" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"COLOR CONVERT"} fontSize={'text-lg2 2sm:text-xl'} translateText={translateText}/></Link>
           <Link to="/age-calculator" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"AGE CALCULATOR"} fontSize={'text-lg2 2sm:text-xl'} translateText={translateText}/></Link>
+          <Link to="//human-to-pet" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"HUMAN TO PET AGE"} fontSize={'text-lg2 2sm:text-xl'} translateText={translateText}/></Link>
           <Link to="/coins" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"CURRENCY CONVERTER"} fontSize={'text-lg2 2sm:text-xl'} translateText={translateText}/></Link>
         </section>
       </div>

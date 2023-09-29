@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function NotFound({ state }) {
-  const cardBg = state === "dark" ? "bg-pureBlack" : "bg-white";
   const textColor = state === "dark" ? "text-white" : "text-black";
 
   return (

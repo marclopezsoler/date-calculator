@@ -35,7 +35,7 @@ function App() {
               <Route exact path="/age-calculator" element={<AgeCalculator state={bgState}/>}></Route>
               <Route exact path="/coins" element={<Coins state={bgState}/>}></Route>
               <Route exact path="/convert-case" element={<ConvertCase state={bgState}/>}></Route>
-              <Route path='*' element={<NotFound />}/>
+              <Route path='*' element={<NotFound state={bgState}/>}/>
             </Routes>
         </div>
       </div>
