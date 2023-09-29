@@ -4,7 +4,7 @@ import SwitchBg from "./components/SwitchBg";
 import AgeCalculator from "./pages/AgeCalculator";
 import Menu from "./components/Menu";
 import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
-import Coins from "./pages/Coins";
+import CurrencyChange from "./pages/CurrencyChange";
 import Home from "./pages/Home";
 import { AnimatePresence } from "framer-motion";
 import NotFound from "./pages/NotFound";
@@ -32,9 +32,9 @@ function App() {
           >
             <Routes>
               <Route exact path="/" element={<Home state={bgState}/>}></Route>
-              <Route exact path="/age-calculator" element={<AgeCalculator state={bgState}/>}></Route>
-              <Route exact path="/coins" element={<Coins state={bgState}/>}></Route>
               <Route exact path="/convert-case" element={<ConvertCase state={bgState}/>}></Route>
+              <Route exact path="/age-calculator" element={<AgeCalculator state={bgState}/>}></Route>
+              <Route exact path="/currency-change" element={<CurrencyChange state={bgState}/>}></Route>
               <Route path='*' element={<NotFound state={bgState}/>}/>
             </Routes>
         </div>

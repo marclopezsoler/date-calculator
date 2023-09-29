@@ -36,7 +36,7 @@ export default function Home({ state }) {
           <HomeLinks link="/color-convert" width="10" cardBg={cardBg} icon={state === 'dark' ? colorLight : colorDark} textColor={textColor} textValue={"COLOR CONVERT"}/>
           <HomeLinks link="/age-calculator" width="10" cardBg={cardBg} icon={state === 'dark' ? calendarLight : calendarDark} textColor={textColor} textValue={"AGE CALENDAR"}/>
           <HomeLinks link="/human-to-pet" width="12" cardBg={cardBg} icon={state === 'dark' ? petLight : petDark} textColor={textColor} textValue={"HUMAN TO PET AGE"}/>
-          <HomeLinks link="/coins" width="12" cardBg={cardBg} icon={state === 'dark' ? moneyLight : moneyDark} textColor={textColor} textValue={"CURRENCY CONVERTER"}/>
+          <HomeLinks link="/currency-change" width="12" cardBg={cardBg} icon={state === 'dark' ? moneyLight : moneyDark} textColor={textColor} textValue={"CURRENCY CONVERTER"}/>
         </div>
       </div>
     </motion.div>

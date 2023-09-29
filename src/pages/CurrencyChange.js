@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import convertCurrency from "../components/convertCurrency";
 
-function Coins({ state }) {
+export default function CurrencyChange({ state }) {
   const [moneyChanged, setMoneyChanged] = useState(0);
   const [selectedCurrencies, setSelectedCurrencies] = useState({
     curr1: "USD",
@@ -128,5 +128,3 @@ function Coins({ state }) {
     </motion.div>
   );
 }
-
-export default Coins;
