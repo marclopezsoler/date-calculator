@@ -10,8 +10,8 @@ export default function Menu({ state }) {
   const textColor = state === "light" ? "text-white" : "text-pureBlack";
   const menuColor = state === "light" ? "#000000" : "#FFFFFF";
 
-  const translation = isOpen ? "" : "translate-x-full";
-  const translateText = isOpen ? "" : "translate-x-full";
+  const translation = isOpen ? "" : "-translate-x-full";
+  const translateText = isOpen ? "" : "-translate-x-full";
 
   function menuMove() {
     setOpenClose(!isOpen);
