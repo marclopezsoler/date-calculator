@@ -7,6 +7,8 @@ import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import Coins from "./pages/Coins";
 import Home from "./pages/Home";
 import { AnimatePresence } from "framer-motion";
+import NotFound from "./pages/NotFound";
+import ConvertCase from "./pages/ConvertCase";
 
 function App() {
   const [bgState, setBgState] = useState("light");
@@ -29,6 +31,8 @@ function App() {
               <Route exact path="/" element={<Home state={bgState}/>}></Route>
               <Route exact path="/age-calculator" element={<AgeCalculator state={bgState}/>}></Route>
               <Route exact path="/coins" element={<Coins state={bgState}/>}></Route>
+              <Route exact path="/convert-case" element={<ConvertCase state={bgState}/>}></Route>
+              <Route path='*' element={<NotFound />}/>
             </Routes>
         </div>
       </Router>

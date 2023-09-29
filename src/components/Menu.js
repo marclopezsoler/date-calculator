@@ -33,6 +33,7 @@ export default function Menu({ state }) {
       >
         <section className="flex flex-col gap-4 items-center justify-center w-screen h-screen">
           <Link to="/" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"HOME"} fontSize={'xl'} translateText={translateText}/></Link>
+          <Link to="/case-convert" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"CASE CONVERT"} fontSize={'xl'} translateText={translateText}/></Link>
           <Link to="/age-calculator" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"AGE CALCULATOR"} fontSize={'xl'} translateText={translateText}/></Link>
           <Link to="/coins" onClick={closeMenu} className="transition duration-200 sm:hover:scale-105 text-center"><LinkButton textColor={textColor} textValue={"CURRENCY CONVERTER"} fontSize={'xl'} translateText={translateText}/></Link>
         </section>

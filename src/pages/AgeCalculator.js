@@ -26,49 +26,33 @@ function AgeCalculator({state}) {
 
       let birth = new Date(yearValue, monthValue - 1, dayValue);
 
-      let todayDate = new Date(todayYear, todayMonth - 1, todayDay);
+      let timeDiff = today - birth;
+      let ageDate = new Date(timeDiff);
 
-      if(birth < todayDate){
-        createDate();
-      } else if (birth > todayDate){
-      } else{
-        createDate();
-      }
+      let calculatedDays = ageDate.getDate() - 1;
+      let calculatedMonths = ageDate.getMonth();
+      let calculatedYears = ageDate.getFullYear() - 1970;
       
-      if(dayValue == "" && dayValue <= 31){
-        dayValue = todayDay;
+      setDays(calculatedDays);
+      setMonths(calculatedMonths);
+      setYears(calculatedYears);
+
+      if (dayValue === todayDay - 1) {
+        setDayText("day");
+      } else {
+        setDayText("days");
       }
-      if(monthValue == "" && monthValue <= 12){
-        monthValue = todayMonth;
+
+      if (monthValue === todayMonth - 1) {
+        setMonthText("month");
+      } else {
+        setMonthText("months");
       }
-      if(yearValue == ""){
-        yearValue = todayYear;
-      }
 
-      function createDate(){
-        setDays(todayDay - dayValue);
-        setMonths(todayMonth - monthValue);
-        setYears(todayYear - yearValue);
-
-        console.log(days);
-
-        if(dayValue == todayDay - 1){
-          setDayText('day');
-        } else{
-          setDayText('days');
-        }
-
-        if(monthValue == todayMonth - 1){
-          setMonthText('month');
-        } else{
-          setMonthText('months');
-        }
-
-        if(yearValue == todayYear - 1){
-          setYearText('year');
-        } else{
-          setYearText('years');
-        }
+      if (yearValue === todayYear - 1) {
+        setYearText("year");
+      } else {
+        setYearText("years");
       }
     }
   }
@@ -85,10 +69,10 @@ function AgeCalculator({state}) {
       transition={{ duration: 0.67 }}
     >
         <div className={`${cardBg} max-w-lg w-full h-fit px-12 py-12 gap-4 rounded-xl shadow-sm hover:shadow-md transition duration-500 flex flex-col items-start justify-center`}>
-          <section className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-3/4 items-center justify-center">
+          <section className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full items-center justify-center">
             <AgeInput textColor={textColor} titleValue={'DAY'} min={1} max={31} plaecholder={"DD"} id={'day'}/>
             <AgeInput textColor={textColor} titleValue={'MONTH'} min={1} max={12} plaecholder={"MM"} id={'month'}/>
-            <AgeInput textColor={textColor} titleValue={'YEAR'} min={1} max={todayYear} plaecholder={"YYYY"} id={'year'}/>
+            <AgeInput textColor={textColor} titleValue={'YEAR'} min={100} max={todayYear} plaecholder={"YYYY"} id={'year'}/>
           </section>
           <section className="w-full relative flex flex-col items-end mt-4">
             <a className="w-full h-px bg-gray-300 absolute mt-8 z-0"></a>

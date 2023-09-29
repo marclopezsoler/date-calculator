@@ -2,6 +2,8 @@ import calendarDark from "../assets/calendarDark.svg";
 import calendarLight from "../assets/calendarLight.svg";
 import moneyDark from "../assets/moneyDark.svg";
 import moneyLight from "../assets/moneyLight.svg";
+import letterDark from "../assets/letterDark.svg";
+import letterLight from "../assets/letterLight.svg";
 import HomeLinks from "../components/HomeLinks";
 import { motion } from "framer-motion";
 
@@ -23,6 +25,7 @@ export default function Home({ state }) {
           <h1 className={`max-w-2xl text-purple text-center transition duration-700 delay-200 font-black italic text-xl`}>WELCOME TO RANDOM CONVERTERS</h1>
         </div>
         <div className="grid grid-cols-2 gap-8 w-full">
+          <HomeLinks link="/convert-case" width="10" cardBg={cardBg} icon={state === 'dark' ? letterLight : letterDark} textColor={textColor} textValue={"CONVERT CASE"}/>
           <HomeLinks link="/age-calculator" width="8" cardBg={cardBg} icon={state === 'dark' ? calendarLight : calendarDark} textColor={textColor} textValue={"AGE CALENDAR"}/>
           <HomeLinks link="/coins" width="12" cardBg={cardBg} icon={state === 'dark' ? moneyLight : moneyDark} textColor={textColor} textValue={"CURRENCY CONVERTER"}/>
         </div>
