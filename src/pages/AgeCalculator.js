@@ -3,6 +3,7 @@ import iconArrow from "../assets/icon-arrow.svg";
 import AgeInput from "../components/AgeInput";
 import AgeResult from "../components/AgeResult";
 import { motion } from "framer-motion";
+import Popup from "../components/Popup";
 
 function AgeCalculator({state}) {
   const [days, setDays] = useState("--");
@@ -11,6 +12,7 @@ function AgeCalculator({state}) {
   const [dayText, setDayText] = useState("days");
   const [monthText, setMonthText] = useState("months");
   const [yearText, setYearText] = useState("years");
+  const [popup, setPopup] = useState(false);
 
   let today = new Date();
   let todayDay = today.getDate();
@@ -26,33 +28,47 @@ function AgeCalculator({state}) {
 
       let birth = new Date(yearValue, monthValue - 1, dayValue);
 
-      let timeDiff = today - birth;
-      let ageDate = new Date(timeDiff);
-
-      let calculatedDays = ageDate.getDate() - 1;
-      let calculatedMonths = ageDate.getMonth();
-      let calculatedYears = ageDate.getFullYear() - 1970;
-      
-      setDays(calculatedDays);
-      setMonths(calculatedMonths);
-      setYears(calculatedYears);
-
-      if (dayValue === todayDay - 1) {
-        setDayText("day");
-      } else {
+      if (birth > today) {
+        setDays("--");
+        setMonths("--");
+        setYears("--");
         setDayText("days");
-      }
-
-      if (monthValue === todayMonth - 1) {
-        setMonthText("month");
-      } else {
         setMonthText("months");
-      }
-
-      if (yearValue === todayYear - 1) {
-        setYearText("year");
-      } else {
         setYearText("years");
+        setPopup(true);
+
+        setTimeout(() => {
+          setPopup(false);
+        }, 4000);
+      } else {
+        let timeDiff = today - birth;
+        let ageDate = new Date(timeDiff);
+
+        let calculatedDays = ageDate.getDate() - 1;
+        let calculatedMonths = ageDate.getMonth();
+        let calculatedYears = ageDate.getFullYear() - 1970;
+        
+        setDays(calculatedDays);
+        setMonths(calculatedMonths);
+        setYears(calculatedYears);
+
+        if (dayValue === todayDay - 1) {
+          setDayText("day");
+        } else {
+          setDayText("days");
+        }
+
+        if (monthValue === todayMonth - 1) {
+          setMonthText("month");
+        } else {
+          setMonthText("months");
+        }
+
+        if (yearValue === todayYear - 1) {
+          setYearText("year");
+        } else {
+          setYearText("years");
+        }
       }
     }
   }
@@ -60,6 +76,7 @@ function AgeCalculator({state}) {
   const cardBg = state === 'dark' ? 'bg-pureBlack' : 'bg-white';
   const h1Color = state === 'dark' ? 'text-white' : 'text-black';
   const textColor = state === 'dark' ? 'text-white' : 'text-gray-400';
+  const translation = popup ? "translate-y-0" : "-translate-y-full";
 
   return (
     <motion.div
@@ -68,7 +85,7 @@ function AgeCalculator({state}) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.67 }}
     >
-        <div className={`${cardBg} max-w-lg w-full h-fit px-12 py-12 gap-4 rounded-xl shadow-sm hover:shadow-md transition duration-500 flex flex-col items-start justify-center`}>
+        <div className={`${cardBg} max-w-lg w-full h-fit px-12 py-12 gap-4 rounded-xl shadow-sm hover:shadow-md transition duration-500 flex flex-col items-center justify-center`}>
           <section className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full items-center justify-center">
             <AgeInput textColor={textColor} titleValue={'DAY'} min={1} max={31} plaecholder={"DD"} id={'day'}/>
             <AgeInput textColor={textColor} titleValue={'MONTH'} min={1} max={12} plaecholder={"MM"} id={'month'}/>
@@ -83,6 +100,7 @@ function AgeCalculator({state}) {
             <AgeResult h1Color={h1Color} result={months} titleText={monthText}/>
             <AgeResult h1Color={h1Color} result={years} titleText={yearText}/>
           </section>
+          <Popup title={"BIRTH DATE CAN'T BE IN THE FUTURE"} cardBg={cardBg} translation={translation} textColor={textColor}/>
         </div>
     </motion.div>
   );

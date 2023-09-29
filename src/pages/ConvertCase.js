@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import CharsBtn from "../components/CharsBtn";
+import Popup from "../components/Popup";
 
 function ConvertCase({ state }) {
   const [textContent, setTextContent] = useState("");
@@ -42,6 +43,24 @@ function ConvertCase({ state }) {
     sentenceCase = sentenceCase.charAt(0).toUpperCase() + sentenceCase.slice(1);
 
     setTextContent(sentenceCase);
+  }
+
+  function setAlternateCase(){
+    let alternateCase = textContent.toLowerCase().split("");
+    for (let i = 0; i < alternateCase.length; i += 2) {
+      alternateCase[i] = alternateCase[i].toUpperCase();
+    }
+    alternateCase = alternateCase.join("");
+    setTextContent(alternateCase);
+  }
+
+  function setInverseCase(){
+    let alternateCase = textContent.toUpperCase().split("");
+    for (let i = 0; i < alternateCase.length; i += 2) {
+      alternateCase[i] = alternateCase[i].toLowerCase();
+    }
+    alternateCase = alternateCase.join("");
+    setTextContent(alternateCase);
   }
 
   function copyClipboard() {
@@ -92,18 +111,12 @@ function ConvertCase({ state }) {
           <CharsBtn functionName={setUpperCase} name={"UPPER CASE"} />
           <CharsBtn functionName={setSentenceCase} name={"Sentence case"} />
           <CharsBtn functionName={setCapitalCase} name={"Capital Case"} />
+          <CharsBtn functionName={setAlternateCase} name={"AlTeRnAtE cAsE"} />
+          <CharsBtn functionName={setInverseCase} name={"iNvErSe CaSe"} />
           <CharsBtn functionName={copyClipboard} name={"Copy to Clipboard"} />
           <CharsBtn functionName={setClear} name={"Clear"} />
         </div>
-        <div
-          className={`select-none absolute w-fit h-full top-0 pointer-events-none	transition duration-500 ease-out z-50 mt-6 ${translation}`}
-        >
-          <p
-            className={`${cardBg} ${textColor} font-bold text-md p-4 rounded-full`}
-          >
-            Text copied to clipboard
-          </p>
-        </div>
+        <Popup title={'TEXT COPIED TO CLIPBOARD'} cardBg={cardBg} translation={translation} textColor={textColor}/>
       </div>
     </motion.div>
   );
