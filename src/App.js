@@ -28,7 +28,7 @@ function App() {
         <Menu state={bgState} />
         <SwitchBg state={bgState} changeBg={changeBg} />
         <div
-          className={`${mainBg} overflow-x-hidden w-screen h-screen flex flex-col relative items-center justify-start 2sm:justify-center transition duration-300`}
+          className={`${mainBg} overflow-x-hidden w-screen h-screen flex flex-col relative items-center justify-center 2sm:justify-center transition duration-300`}
           >
             <Routes>
               <Route exact path="/" element={<Home state={bgState}/>}></Route>

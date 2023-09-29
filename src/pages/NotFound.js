@@ -12,7 +12,7 @@ function NotFound({ state }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.67 }}
     >
-      <div className={`flex flex-col items-center justify-center gap-4`}>
+      <div className={`flex flex-col items-center justify-center gap-4 mt-[50vh] sm:mt-[0vh]`}>
           <span className={`${textColor} font-bold text-md tracking-widest`}>PAGE NOT FOUND</span>
           <Link to="/" className={`${textColor} transition duration-300 font-bold italic text-lg hover:scale-105`}>GO BACK HOME</Link>
       </div>
