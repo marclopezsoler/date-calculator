@@ -28,6 +28,7 @@ module.exports = {
       fontSize: {
         base: ["16px", "24px"],
         lg: ["20px", "30px"],
+        lg2: ["28px", "30px"],
         xl: ["32px", "38px"],
         "2xl": ["52px", { letterSpacing: "-0.4px", lineHeight: 1.25 }],
       },
