@@ -12,7 +12,7 @@ export default function CurrenciesSelect({ idVal, text, textColor, currency }) {
   };
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full pb-4">
       <h2 className={`${textColor} font-bold text-xs pb-1 tracking-widest`}>
         {text}
       </h2>

@@ -95,7 +95,7 @@ function ConvertCase({ state }) {
       transition={{ duration: 0.67 }}
     >
       <div
-        className={`${cardBg} max-w-lg w-fit h-fit px-8 py-8 sm:px-8 sm:py-8 gap-4 rounded-xl sm:shadow-sm sm:hover:shadow-md transition duration-500 flex flex-col items-center justify-center mt-24 mb-24 mx-6`}
+        className={`${cardBg} max-w-lg w-full h-full px-8 py-8 sm:px-8 sm:py-8 gap-4 rounded-xl sm:shadow-sm sm:hover:shadow-md transition duration-500 flex flex-col items-center justify-center mt-24 mb-24 mx-4`}
       >
         <section className="flex flex-col w-full h-full items-start justify-center">
           <textarea

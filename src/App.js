@@ -26,9 +26,8 @@ function App() {
           className={`${mainBg} overflow-x-hidden w-screen h-screen flex flex-col relative items-center justify-start 2sm:justify-center 2sm:p-4 transition duration-300`}
           >
         <Menu state={bgState} />
-        <SwitchBg state={bgState} changeBg={changeBg} />
         <div
-          className={`${mainBg} overflow-x-hidden w-screen h-screen flex flex-col relative items-center justify-center 2sm:justify-center transition duration-300`}
+          className={`${mainBg} overflow-x-fit w-screen h-screen flex flex-col relative items-center justify-start 2sm:justify-center transition duration-300 pt-24 2sm:pt-0 px-6`}
           >
             <Routes>
               <Route exact path="/" element={<Home state={bgState}/>}></Route>
@@ -38,6 +37,7 @@ function App() {
               <Route path='*' element={<NotFound state={bgState}/>}/>
             </Routes>
         </div>
+        <SwitchBg state={bgState} changeBg={changeBg} />
       </div>
       </Router>
     </AnimatePresence>

@@ -31,9 +31,9 @@ export default function CurrencyChange({ state }) {
       curr1: prevSelectedCurrencies.curr2,
       curr2: prevSelectedCurrencies.curr1,
     }));
-  
+
     setMoneyChanged(0);
-  };  
+  };
 
   const cardBg = state === "dark" ? "bg-pureBlack" : "bg-white";
   const textColor = state === "dark" ? "text-white" : "text-black";
@@ -61,9 +61,9 @@ export default function CurrencyChange({ state }) {
       transition={{ duration: 0.67 }}
     >
       <div
-        className={`${cardBg} max-w-lg w-fit h-fit px-8 py-8 sm:px-8 sm:py-8 gap-4 rounded-xl sm:shadow-sm sm:hover:shadow-md transition duration-500 flex flex-col items-start justify-center mt-24 mb-24 mx-6`}
+        className={`${cardBg} max-w-lg w-full h-full px-8 py-8 sm:px-8 sm:py-8 gap-4 rounded-xl sm:shadow-sm sm:hover:shadow-md transition duration-500 flex flex-col items-start justify-center mt-24 mb-24 mx-6`}
       >
-        <section className="flex flex-col w-full h-fit items-start justify-center">
+        <section className="flex flex-col w-full h-full items-start justify-center">
           <span
             className={`${textColor} font-bold text-xs pb-1 tracking-widest`}
           >
@@ -77,7 +77,7 @@ export default function CurrencyChange({ state }) {
             id="money"
           ></input>
         </section>
-        <section className="flex flex-col 2sm:flex-row w-full gap-2 2sm:gap-8 items-center 2sm:items-end justify-center">
+        <section className="flex flex-col 2sm:flex-row w-full h-full gap-2 2sm:gap-8 items-center 2sm:items-end justify-center">
           <CurrenciesSelect
             idVal={"curr1"}
             text={"From:"}
@@ -92,7 +92,7 @@ export default function CurrencyChange({ state }) {
           />
 
           <button
-            className={`bg-purple text-white text-lg flex items-center justify-center w-12 2sm:w-24 h-12 2sm:h-10 mt-4 2sm:mt-0 border border-purple font-bold italic rounded-full p-2 mx-4 z-10 transition duration-200 sm:hover:scale-110`}
+            className={`bg-purple text-white text-lg flex items-center justify-center w-12 2sm:w-28 h-12 2sm:h-12 border border-purple font-bold italic rounded-full p-2 mx-4 z-10 transition duration-200 sm:hover:scale-110 mt-8 2sm:mt-0`}
             onClick={handleSwapCurrencies}
           >
             <img src={swapIcon} alt="Swap" />

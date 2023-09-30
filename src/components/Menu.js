@@ -24,7 +24,7 @@ export default function Menu({ state }) {
   return (
     <>
       <button
-        className={`${switchBg} absolute flex items-center justify-center shadow-sm hover:shadow-md p-0 m-2 w-12 h-12 rounded-full top-4 transition duration-500 sm:hover:scale-110 z-30`}
+        className={`${switchBg} overflow-y-hidden absolute flex items-center justify-center shadow-sm hover:shadow-md p-0 m-2 w-12 h-12 rounded-full top-4 transition duration-500 sm:hover:scale-110 z-30`}
       >
         <Hamburger direction="right" className="transition duration-500 p-0 m-0 " size={20} color={menuColor} toggled={isOpen} toggle={menuMove} />
       </button>

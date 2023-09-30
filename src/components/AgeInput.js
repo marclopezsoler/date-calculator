@@ -1,6 +1,6 @@
 export default function AgeInput({textColor, titleValue, min, max, plaecholder, id}) {
   return (
-    <div className="flex flex-col w-full 2sm:w-fit h-fit items-start justify-center">
+    <div className="flex flex-col w-full 2sm:w-fit h-full items-start justify-center">
       <h2 className={`${textColor} font-bold text-xs pb-1 tracking-widest`}>
         {titleValue}
       </h2>
