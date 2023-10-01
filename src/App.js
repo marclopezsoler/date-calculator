@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import { AnimatePresence } from "framer-motion";
 import NotFound from "./pages/NotFound";
 import ConvertCase from "./pages/ConvertCase";
+import TipCalculator from "./pages/TipCalculator";
 
 function App() {
   const [bgState, setBgState] = useState("light");
@@ -31,6 +32,7 @@ function App() {
           >
             <Routes>
               <Route exact path="/" element={<Home state={bgState}/>}></Route>
+              <Route exact path="/tip-calculator" element={<TipCalculator state={bgState}/>}></Route>
               <Route exact path="/convert-case" element={<ConvertCase state={bgState}/>}></Route>
               <Route exact path="/age-calculator" element={<AgeCalculator state={bgState}/>}></Route>
               <Route exact path="/currency-change" element={<CurrencyChange state={bgState}/>}></Route>
