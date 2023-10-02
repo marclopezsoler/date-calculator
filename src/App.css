@@ -1,3 +1,35 @@
 *{
    background-color: transparent;
 }
+
+.slider {
+   --SliderColor: #864CFF;
+   -webkit-appearance: none;
+   width: 100%;
+   height: 2px;
+ }
+ 
+ /* --------------------------- webkit browsers */
+ .slider::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   width: 18px;
+   height: 18px;
+   border-radius: 100px;
+   border: 2px solid #864CFF;
+   background-color: white;
+   overflow: visible;
+   cursor: pointer;
+ }
+ 
+ /* -------------------------- Firefox */
+ .slider::-moz-range-thumb { 
+   -moz-appearance: none;
+   width: 18px;
+   height: 18px;
+   border-radius: 10px;
+   border: 2px solid #864CFF;
+   background-color: white;
+   overflow: visible;
+   cursor: pointer;
+ }
+ .slider::-moz-focus-outer { border: 0; }

@@ -93,7 +93,7 @@ function AgeCalculator({ state }) {
             titleValue={"DAY"}
             min={1}
             max={31}
-            plaecholder={"DD"}
+            placeholder={"DD"}
             id={"day"}
           />
           <AgeInput
@@ -101,7 +101,7 @@ function AgeCalculator({ state }) {
             titleValue={"MONTH"}
             min={1}
             max={12}
-            plaecholder={"MM"}
+            placeholder={"MM"}
             id={"month"}
           />
           <AgeInput
@@ -109,7 +109,7 @@ function AgeCalculator({ state }) {
             titleValue={"YEAR"}
             min={100}
             max={todayYear}
-            plaecholder={"YYYY"}
+            placeholder={"YYYY"}
             id={"year"}
           />
         </section>
