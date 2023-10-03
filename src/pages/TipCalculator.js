@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import iconArrow from "../assets/icon-arrow.svg";
-import Input from "../components/Input";
 import Popup from "../components/Popup";
 
 export default function TipCalculator({ state }) {
@@ -19,8 +18,8 @@ export default function TipCalculator({ state }) {
   }
 
   function setMoney() {
-    let billMoney = parseInt(document.getElementById("billMoney").value);
-    let tipPc = parseInt(document.getElementById("tipPc").value);
+    let billMoney = parseFloat(document.getElementById("billMoney").value);
+    let tipPc = parseFloat(document.getElementById("tipPc").value);
     let peopleVal = parseInt(document.getElementById("splitBy").value);
 
     if (!isNaN(billMoney)) {
@@ -54,33 +53,30 @@ export default function TipCalculator({ state }) {
       <div
         className={`${cardBg} max-w-lg w-full h-full px-8 py-8 sm:px-8 sm:py-8 gap-4 rounded-xl sm:shadow-sm sm:hover:shadow-md transition duration-500 flex flex-col items-center justify-center mt-24 mb-24 mx-4`}
       >
-        <section className="flex flex-col w-full 2sm:w-full h-full items-start justify-center">
+        <section className="flex flex-col w-full h-full items-start justify-center">
           <h2 className={`${textColor} font-bold text-xs pb-1 tracking-widest`}>
             BILL AMOUNT
           </h2>
           <input
             min={"1"}
             max={"9999999999999"}
-            placeholder={"99,99"}
-            step="any"
-            pattern="\d+(\.\d{1,2})?"
-            className={`${textColor} outline-none placeholder-gray-300 bg-transparent font-bold w-full 2sm:w-20 border border-gray-300 rounded p-2`}
+            placeholder={"99.99"}
+            className={`${textColor} outline-none placeholder-gray-300 bg-transparent font-bold w-full border border-gray-300 rounded p-2`}
             id="billMoney"
           ></input>
         </section>
-        <section className="flex flex-col w-full 2sm:w-full h-full items-start justify-center">
+        <section className="flex flex-col w-full h-full items-start justify-center">
           <h2 className={`${textColor} font-bold text-xs pb-1 tracking-widest`}>
             TIP PERCENTAGE
           </h2>
           <div>
-            <Input
+            <input
               min={"1"}
               max={"100"}
               placeholder={"10%"}
-              textColor={textColor}
+              className={`${textColor} outline-none placeholder-gray-300 bg-transparent font-bold w-full border border-gray-300 rounded p-2`}
               id="tipPc"
-            />
-            <span>%</span>
+            ></input>
           </div>
         </section>
         <section className="flex flex-col w-full 2sm:w-full h-full items-start justify-center gap-4">

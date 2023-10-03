@@ -1,17 +1,13 @@
+import { motion } from "framer-motion";
 import calendarDark from "../assets/calendarDark.svg";
 import calendarLight from "../assets/calendarLight.svg";
-import moneyDark from "../assets/moneyDark.svg";
-import moneyLight from "../assets/moneyLight.svg";
 import letterDark from "../assets/letterDark.svg";
 import letterLight from "../assets/letterLight.svg";
-import petDark from "../assets/petDark.svg";
-import petLight from "../assets/petLight.svg";
-import colorDark from "../assets/colorDark.svg";
-import colorLight from "../assets/colorLight.svg";
+import moneyDark from "../assets/moneyDark.svg";
+import moneyLight from "../assets/moneyLight.svg";
 import tipDark from "../assets/tipDark.svg";
 import tipLight from "../assets/tipLight.svg";
 import HomeLinks from "../components/HomeLinks";
-import { motion } from "framer-motion";
 
 export default function Home({ state }) {
    const cardBg = state === "dark" ? "bg-pureBlack" : "bg-white";
@@ -33,9 +29,7 @@ export default function Home({ state }) {
         <div className="flex flex-col 2sm:grid 2sm:grid-cols-2 gap-8 w-full items-center justify-center">
           <HomeLinks link="/convert-case" width="10" cardBg={cardBg} icon={state === 'dark' ? letterLight : letterDark} textColor={textColor} textValue={"CONVERT CASE"}/>
           <HomeLinks link="/tip-calculator" width="10" cardBg={cardBg} icon={state === 'dark' ? tipLight : tipDark} textColor={textColor} textValue={"TIP CALCULATOR"}/>
-          <HomeLinks link="/color-convert" width="10" cardBg={cardBg} icon={state === 'dark' ? colorLight : colorDark} textColor={textColor} textValue={"COLOR CONVERT"}/>
           <HomeLinks link="/age-calculator" width="10" cardBg={cardBg} icon={state === 'dark' ? calendarLight : calendarDark} textColor={textColor} textValue={"AGE CALENDAR"}/>
-          <HomeLinks link="/human-to-pet" width="12" cardBg={cardBg} icon={state === 'dark' ? petLight : petDark} textColor={textColor} textValue={"HUMAN TO PET AGE"}/>
           <HomeLinks link="/currency-change" width="12" cardBg={cardBg} icon={state === 'dark' ? moneyLight : moneyDark} textColor={textColor} textValue={"CURRENCY CONVERTER"}/>
         </div>
       </div>
